@@ -1,4 +1,4 @@
-module repo-sync
+module github.com/SemiCicada/repo-sync
 
 go 1.27.0
 

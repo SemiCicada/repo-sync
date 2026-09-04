@@ -1,4 +1,4 @@
-package main
+package repolog
 
 type Ledger struct {
 	Repositories []Repository `json:"repositories"`
@@ -22,4 +22,8 @@ type Branch struct {
 	Name    string `json:"name"`
 	LastRev string `json:"lastRev"`
 	CurRev  string `json:"curRev"`
+}
+
+func New() Ledger {
+	return Ledger{}
 }

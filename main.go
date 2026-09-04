@@ -5,6 +5,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/SemiCicada/repo-sync/repolog"
 	"github.com/kardianos/service"
 )
 
@@ -61,6 +62,7 @@ func main() {
 
 // Adds the given repository pair to a JSON file
 func add(srcUrl, dstUrl, path string) error {
+	repolog.New()
 	return nil
 }
 
