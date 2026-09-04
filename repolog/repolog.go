@@ -24,6 +24,6 @@ type Branch struct {
 	CurRev  string `json:"curRev"`
 }
 
-func New() Ledger {
-	return Ledger{}
+func New() *Ledger {
+	return &Ledger{}
 }
