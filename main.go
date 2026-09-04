@@ -27,15 +27,25 @@ func main() {
 		Description: serviceDescription,
 	}
 
-	prg := &program{}
-	s, err := service.New(prg, svcConfig)
+	args := os.Args[1:]
+	p := &program{}
+
+	s, err := service.New(p, svcConfig)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Support for installing/starting/stopping the service via command line arguments
-	if len(os.Args) > 1 {
-		err = service.Control(s, os.Args[1])
+	if len(args) > 0 {
+		// Puller runs once and returns bundles to process
+		if args[0] == "pull" {
+			if err := pull(); err != nil {
+				log.Fatal(err)
+			}
+			return
+		}
+
+		// Support for installing/starting/stopping the service via command line arguments
+		err = service.Control(s, args[0])
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -47,6 +57,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+// Performs a single pull-run and returns.
+func pull() error {
+	return nil
 }
 
 func (p *program) Start(s service.Service) error {
