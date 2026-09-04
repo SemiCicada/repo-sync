@@ -30,8 +30,6 @@ bundles/
 
 Bundles are organized per repository, and are numbered in creation order for easier maintenance.
 
-In order for the order to be maintained, repos.json must contain the current bundle number, and increment it on every run.
-
 This allows all outputs to be combined into a single folder, and also allows the other end (push-run) to trivially validate bundle order.
 
 The structure of repos.json is as follows:

@@ -59,8 +59,15 @@ func main() {
 	}
 }
 
+// Adds the given repository pair to a JSON file
+func add(srcUrl, dstUrl, path string) error {
+	return nil
+}
+
 // Performs a single pull-run and returns.
 func pull() error {
+	// No args should read from a JSON file
+	// Having args should be 1 or more repos to add to the JSON file
 	return nil
 }
 
